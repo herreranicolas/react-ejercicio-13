@@ -8,10 +8,14 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
-const CardClima = () => {
-  const fecha = new Date();
-  const tiempo = `${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`;
-
+const CardClima = ({
+  ciudad,
+  descripcion,
+  humedad,
+  icono,
+  temperatura,
+  viento,
+}) => {
   return (
     <section className="vh-100">
       <MDBContainer className="mt-4">
@@ -21,7 +25,7 @@ const CardClima = () => {
               <MDBCardBody className="p-4">
                 <div className="d-flex">
                   <MDBTypography tag="h6" className="flex-grow-1">
-                    Nombre ciudad
+                    {ciudad}
                   </MDBTypography>
                 </div>
 
@@ -31,10 +35,10 @@ const CardClima = () => {
                     className="display-4 mb-0 font-weight-bold"
                     style={{ color: "#1C2331" }}
                   >
-                    13°C
+                    {parseInt(temperatura)}°C
                   </MDBTypography>
                   <span className="small" style={{ color: "#868B94" }}>
-                    Stormy
+                    {descripcion}
                   </span>
                 </div>
 
@@ -46,7 +50,7 @@ const CardClima = () => {
                         icon="wind fa-fw"
                         style={{ color: "#868B94" }}
                       />{" "}
-                      <span className="ms-1"> 40 km/h</span>
+                      <span className="ms-1"> {viento} km/h</span>
                     </div>
                     <div>
                       <MDBIcon
@@ -54,7 +58,7 @@ const CardClima = () => {
                         icon="tint fa-fw"
                         style={{ color: "#868B94" }}
                       />{" "}
-                      <span className="ms-1"> 84% </span>
+                      <span className="ms-1"> {humedad}% </span>
                     </div>
                     <div>
                       <MDBIcon
@@ -62,7 +66,7 @@ const CardClima = () => {
                         icon="sun fa-fw"
                         style={{ color: "#868B94" }}
                       />{" "}
-                      <span className="ms-1"> 0.2h </span>
+                      <span className="ms-1"> {icono}h </span>
                     </div>
                   </div>
                   <div>
