@@ -20,9 +20,7 @@ const FormularioClima = () => {
         }&appid=40994877b2bc43b989faa17627b3a695&units=metric&lang=es`
       );
       const respuesta = await pedido.json();
-      console.log(respuesta);
       setObjetoClima(respuesta);
-      console.log(objetoClima);
       setMostrarSpinner(false);
     } catch (error) {
       console.log(error);
@@ -32,7 +30,6 @@ const FormularioClima = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (ubicacion.trim() !== "") {
-      setObjetoClima({});
       consultarAPI();
     } else {
       alert("Debes ingresar una ubicacion valida");

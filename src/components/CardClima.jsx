@@ -12,8 +12,9 @@ const CardClima = ({ objetoClima }) => {
   let ciudad = objetoClima.name;
   let temperatura = objetoClima.main.temp;
   let descripcion = objetoClima.weather[0].description;
-  let viento = objetoClima.wind.speed * 3.6;
+  let viento = (objetoClima.wind.speed * 3.6).toFixed(2);
   let humedad = objetoClima.main.humidity;
+  let icono = objetoClima.weather[0].icon;
 
   return (
     <section className="vh-100">
@@ -62,7 +63,7 @@ const CardClima = ({ objetoClima }) => {
                   </div>
                   <div>
                     <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                      src={`https://openweathermap.org/img/wn/${icono}@2x.png`}
                       width="100px"
                     />
                   </div>
