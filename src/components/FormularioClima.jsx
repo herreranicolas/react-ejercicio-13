@@ -1,6 +1,7 @@
 import { Form, InputGroup, Button, Spinner } from "react-bootstrap";
 import CardClima from "./CardClima";
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 const FormularioClima = () => {
   const [ubicacion, setUbicacion] = useState("");
@@ -32,7 +33,13 @@ const FormularioClima = () => {
     if (ubicacion.trim() !== "") {
       consultarAPI();
     } else {
-      alert("Debes ingresar una ubicacion valida");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Debes ingresar una ubicación válida",
+        iconColor: "#3b71ca",
+        confirmButtonColor: "#3b71ca",
+      });
     }
     setUbicacion("");
   };
