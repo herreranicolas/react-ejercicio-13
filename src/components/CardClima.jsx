@@ -8,14 +8,13 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
-const CardClima = ({
-  ciudad,
-  descripcion,
-  humedad,
-  icono,
-  temperatura,
-  viento,
-}) => {
+const CardClima = ({ objetoClima }) => {
+  let ciudad = objetoClima.name;
+  let temperatura = objetoClima.main.temp;
+  let descripcion = objetoClima.weather[0].description;
+  let viento = objetoClima.wind.speed * 3.6;
+  let humedad = objetoClima.main.humidity;
+
   return (
     <section className="vh-100">
       <MDBContainer className="mt-4">
@@ -59,14 +58,6 @@ const CardClima = ({
                         style={{ color: "#868B94" }}
                       />{" "}
                       <span className="ms-1"> {humedad}% </span>
-                    </div>
-                    <div>
-                      <MDBIcon
-                        fas
-                        icon="sun fa-fw"
-                        style={{ color: "#868B94" }}
-                      />{" "}
-                      <span className="ms-1"> {icono}h </span>
                     </div>
                   </div>
                   <div>
